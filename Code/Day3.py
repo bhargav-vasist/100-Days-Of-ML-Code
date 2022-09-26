@@ -3,6 +3,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
+import sklearn.metrics as sm
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -39,7 +40,7 @@ y_pred = regressor.predict(X_test)
 # %%
 fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
-ax.scatter(X_train, c='blue', marker='o')
+# ax.scatter(X_train, c='blue', marker='o')
 
 # set your labels
 ax.set_xlabel('X Label')
@@ -47,5 +48,9 @@ ax.set_ylabel('Y Label')
 ax.set_zlabel('Z Label')
 
 
-plt.scatter(X_train, Y_train, color='red')
-plt.plot(X_train, regressor.predict(X_train), color='blue')
+# plt.scatter(X_train, Y_train, color='red')
+# plt.plot(X_train, regressor.predict(X_train), color='blue')
+
+print("R2 score =", round(sm.r2_score(Y_test, y_pred), 2))
+
+# %%

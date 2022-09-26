@@ -1,5 +1,6 @@
 # %%
 from sklearn.model_selection import train_test_split
+import sklearn.metrics as sm
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -38,4 +39,5 @@ plt.xlabel = "Brain head size in Cm^3"
 plt.ylabel = "Brain weight in grams"
 plt.plot(X_test, regressor.predict(X_test), color='blue')
 
+print("R2 score =", round(sm.r2_score(Y_test, Y_pred), 2))
 # %%
