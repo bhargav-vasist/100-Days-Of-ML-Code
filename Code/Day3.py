@@ -35,8 +35,8 @@ x = X[:, 1]
 y = X[:, 2]
 z = Y
 
-x_pred = np.linspace(2000, 4500, 200)   # range of porosity values
-y_pred = np.linspace(950, 1700, 200)  # range of brittleness values
+x_pred = np.linspace(2000, 4500, 200) #range of values
+y_pred = np.linspace(950, 1700, 200)
 xx_pred, yy_pred = np.meshgrid(x_pred, y_pred)
 model_viz = np.array([xx_pred.flatten(), yy_pred.flatten()]).T
 
@@ -55,7 +55,6 @@ ax1.set_zlabel('Brain Weight')
 ax1.locator_params(nbins=4, axis='x')
 ax1.locator_params(nbins=5, axis='x')
 ax1.view_init(elev=60, azim=165)
-# set your labels
 
 print("R2 score =", round(sm.r2_score(Y_test, y_pred), 2) + 0.154)
 

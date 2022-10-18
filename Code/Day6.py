@@ -47,6 +47,11 @@ plt.ylabel('Actual label')
 plt.xlabel('Predicted label')
 
 # %%
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+print("Precision:",metrics.precision_score(y_test, y_pred))
+print("Recall:",metrics.recall_score(y_test, y_pred))
+
+# %%
 y_pred_proba = logreg.predict_proba(X_test)[::, 1]
 fpr, tpr, _ = metrics.roc_curve(y_test,  y_pred_proba)
 auc = metrics.roc_auc_score(y_test, y_pred_proba)
